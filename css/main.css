@@ -1,0 +1,36 @@
+/*
+ *  Colors:
+ *  ONYX:           #31393C
+ *  SPACE CADET:    #1A3D51
+ *  ASH GREY:       #1A3D51
+ *  NICKEL:         #637074
+ *  WHITE:          #FFFFFF
+ */
+
+body{
+  background-color: #111111;
+  margin: 0;
+  padding: 0;
+}
+
+div.cover-items{
+  position: absolute;
+  height: 2500px;
+  width: 100%;
+  z-index: 100;
+}
+
+#particles-js{
+  position: fixed;
+  width: 100%;
+}
+
+#cover{
+  width: 100%;
+}
+
+@media only screen and (max-width: 720px) {
+    #particles-js {
+        position: absolute;
+    }
+}

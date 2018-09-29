@@ -1,8 +1,10 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <link rel="stylesheet" type="text/css" href="css/main.css">
+    <link rel="stylesheet" type="text/css" href="css/main.css?version=51">
     <link href="https://fonts.googleapis.com/css?family=Bai+Jamjuree" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="js/parallax.min.js"></script>
     <style>
       body, html, h1, h2, h3, h4, h5{
         font-family: 'Bai Jamjuree', sans-serif;
@@ -11,9 +13,23 @@
   </head>
 
   <body>
+
+    <div id="cover-container" class="cover-items">
+      <canvas id="cover"></canvas>
+    </div>
+
+
     <div id="particles-js"></div>
 
-    <script src="node_modules/particles.js"></script>
+
+
+
+
+
+    <script src="js/cover.js"></script>
+    <script src="js/particles.js"></script>
+    <script src="js/app.js"></script>
+
 
   </body>
 
