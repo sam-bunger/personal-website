@@ -8,16 +8,87 @@
  */
 
 body{
-  background-color: #111111;
+  background-color: #FFFFFF;
   margin: 0;
   padding: 0;
 }
 
 div.cover-items{
   position: absolute;
-  height: 2500px;
+  height: 1850px;
   width: 100%;
-  z-index: 100;
+  z-index: 2;
+}
+
+div.cover-items h2{
+  font-size: 60px;
+  color: black;
+  margin-left: -170px;
+  margin-top: -80px;
+  top: 50%;
+  left: -20%;
+  opacity: -1;
+  position: fixed;
+}
+
+div.cover-items h3{
+  font-size: 30px;
+  color: black;
+  left: 120%;
+  opacity: -1;
+  position: fixed;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+div.cover-items h3:hover{
+  cursor: pointer;
+  opacity: 0.3;
+}
+
+
+#about-me{
+  top: 15%;
+}
+
+#experience{
+  top: 30%;
+}
+
+#projects{
+  top: 45%;
+}
+
+#resume{
+  top: 60%;
+}
+
+div.more-content{
+  position: absolute;
+  height: 500px;
+  width: 100%;
+  background-color: transparent;
+  z-index: 3;
+}
+
+div.info-section{
+  background-color: white;
+  color: black;
+  padding: 20px;
+}
+
+div.info-section h1{
+  margin-left: 30px;
+}
+
+.black{
+  background-color: black !important;
+  color: white !important;
+}
+
+div.spacer{
+  background-color: transparent;
+  height: 50px;
 }
 
 #particles-js{
