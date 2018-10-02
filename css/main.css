@@ -77,9 +77,12 @@ div.info-section{
   padding: 20px;
 }
 
-div.info-section h1{
+div.info-section h1, div.info-section p,  div.info-section h4{
   margin-left: 30px;
 }
+ div.info-section h4{
+   font-size: 20px;
+ }
 
 .black{
   background-color: black !important;
@@ -89,6 +92,27 @@ div.info-section h1{
 div.spacer{
   background-color: transparent;
   height: 50px;
+}
+
+#slide-show img{
+  width: 5%;
+  float: left;
+}
+
+#slide-show{
+  margin-left: auto;
+  width:50%;
+  overflow: hidden;
+
+}
+
+#image-slide img{
+  width: 100%;
+}
+
+#image-slide{
+  width: 40%;
+  float: left;
 }
 
 #particles-js{

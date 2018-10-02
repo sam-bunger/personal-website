@@ -44,3 +44,5 @@ $("#resume").click(function(){
        scrollTop: $("#project-sec").offset().top},
   'slow');
 });
+
+//image slideshow
