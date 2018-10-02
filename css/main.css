@@ -63,6 +63,31 @@ div.cover-items h3:hover{
   top: 60%;
 }
 
+img.sm{
+  position: fixed;
+  width: 40px;
+  opacity: 0;
+}
+
+img.sm:hover{
+  cursor: pointer;
+}
+
+#git{
+  top: 52%;
+  left: -30%;
+}
+
+#linked{
+  top: 51.86%;
+  left: -30%;
+}
+
+#email{
+  top: 51.8%;
+  left: -30%;
+}
+
 div.more-content{
   position: absolute;
   height: 500px;

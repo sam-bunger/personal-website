@@ -26,12 +26,18 @@ $(window).scroll(function(){
   var p3 = 80*percent;
 
   var s1 = (30 - p) + "%";
+  var s11 = (23 - p3) + "%";
+  var s12 = (29 - p2) + "%";
+  var s13 = (35 - p1) + "%";
   var s2 = (70 + p) + "%";
   var s3 = (70 + p1) + "%";
   var s4 = (70 + p2) + "%";
   var s5 = (70 + p3) + "%";
 
   $("#name").css({left: s1});
+  $("#email").css({left: s11});
+  $("#linked").css({left: s12});
+  $("#git").css({left: s13});
   $("#about-me").css({left: s2});
   $("#experience").css({left: s3});
   $("#projects").css({left: s4});
@@ -45,14 +51,58 @@ $(function(){
   startAnimation();
 });
 
+var interval;
+
 function startAnimation(){
   $( "#name" ).animate({
     opacity: 1,
     left: "30%",
-  }, 1000, function() {
+  }, 800, function() {
     showMenu("about-me");
+    interval = setInterval(showSocial, 300);
   });
 }
+
+var counter = 0;
+
+function showSocial(){
+  if(counter == 3){
+    clearInterval(interval);
+  }else{
+    var name;
+    if(counter == 0){
+      name = "git";
+    }else if(counter == 1){
+      name = "linked";
+    }else{
+      name = "email";
+    }
+
+    $("#" + name).animateRotate(360, 750, "linear", function(){});
+
+    $( "#" + name ).animate({
+      opacity: 1,
+      left: (35-(counter*6)) + "%",
+    }, 800, function() {
+
+    });
+
+    counter++;
+  }
+}
+
+$.fn.animateRotate = function(angle, duration, easing, complete) {
+    var args = $.speed(duration, easing, complete);
+    var step = args.step;
+    return this.each(function(i, e) {
+        args.step = function(now) {
+            $.style(e, 'transform', 'rotate(' + now + 'deg)');
+            if (step) return step.apply(this, arguments);
+        };
+
+        $({deg: 0}).animate({deg: angle}, args);
+    });
+};
 
 function showMenu(name){
   if(name == "end"){

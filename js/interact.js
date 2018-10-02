@@ -45,4 +45,58 @@ $("#resume").click(function(){
   'slow');
 });
 
+
+//Hover for social media icons
+$("#git").hover(hoverB, unhoverB);
+$("#email").hover(hoverB, unhoverB);
+$("#linked").hover(hoverB, unhoverB);
+
+function hoverB(){
+  $(this).animate({
+    opacity: 0,
+  }, 100, function() {
+    $(this).attr("src","assets/" + $(this).attr('id') + "2.png");
+    $(this).animate({
+      opacity: 1,
+    }, 100, function() {
+    });
+  });
+}
+
+function unhoverB(){
+  $(this).animate({
+    opacity: 0,
+  }, 100, function() {
+    var str = $(this).attr('id');
+    $(this).src="assets/" + $(this).attr("src","assets/" + str.substr(0, str.length) + ".png");
+    $(this).animate({
+      opacity: 1,
+    }, 100, function() {
+    });
+  });
+}
+
+
+//Clicked functions for buttons
+$("#git").click(function(){
+   window.location.href = "https://github.com/sam-bunger";
+});
+$("#email").click(function(){
+
+});
+$("#linked").click(function(){
+  window.location.href = "https://www.linkedin.com/in/sam-bunger/";
+});
+
+
+
+
+
+
+
+
+
+
+
+
 //image slideshow
