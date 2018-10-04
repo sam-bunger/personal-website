@@ -16,27 +16,36 @@ body{
 div.cover-items{
   position: absolute;
   height: 1850px;
-  width: 100%;
+  width: 100vh;
   z-index: 2;
 }
 
 div.cover-items h2{
   font-size: 60px;
+  margin: 20px 0px;
   color: black;
-  margin-left: -170px;
-  margin-top: -80px;
-  top: 50%;
-  left: -20%;
-  opacity: -1;
+  opacity: 0;
+  white-space: nowrap;
+}
+
+
+div.left{
+  top: 40%;
+  left: 20%;
+  position: fixed;
+}
+
+div.right{
+  top: 20%;
+  left: 65%;
   position: fixed;
 }
 
 div.cover-items h3{
   font-size: 30px;
   color: black;
-  left: 120%;
-  opacity: -1;
-  position: fixed;
+  opacity: 0;
+  margin-bottom: 100px;
   white-space: nowrap;
   overflow: hidden;
 }
@@ -46,25 +55,7 @@ div.cover-items h3:hover{
   opacity: 0.3;
 }
 
-
-#about-me{
-  top: 15%;
-}
-
-#experience{
-  top: 30%;
-}
-
-#projects{
-  top: 45%;
-}
-
-#resume{
-  top: 60%;
-}
-
 img.sm{
-  position: fixed;
   width: 40px;
   opacity: 0;
 }
@@ -73,25 +64,10 @@ img.sm:hover{
   cursor: pointer;
 }
 
-#git{
-  top: 52%;
-  left: -30%;
-}
-
-#linked{
-  top: 51.86%;
-  left: -30%;
-}
-
-#email{
-  top: 51.8%;
-  left: -30%;
-}
-
 div.more-content{
   position: absolute;
   height: 500px;
-  width: 100%;
+  width: 100vw;
   background-color: transparent;
   z-index: 3;
 }
@@ -120,19 +96,19 @@ div.spacer{
 }
 
 #slide-show img{
-  width: 5%;
+  width: 5vw;
   float: left;
 }
 
 #slide-show{
   margin-left: auto;
-  width:50%;
+  width:50vw;
   overflow: hidden;
 
 }
 
 #image-slide img{
-  width: 100%;
+  width: 100vw;
 }
 
 #image-slide{
@@ -142,11 +118,7 @@ div.spacer{
 
 #particles-js{
   position: fixed;
-  width: 100%;
-}
-
-#cover{
-  width: 100%;
+  width: 100vw;
 }
 
 @media only screen and (max-width: 720px) {

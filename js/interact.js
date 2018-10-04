@@ -8,16 +8,14 @@ $("#resume").hover(hoverA, unhoverA);
 
 function hoverA(){
   $(this).animate({
-    left: "+=0.5%",
-    top: "-=0.5%"
+    marginLeft: "+=10px",
   }, 200, function() {
   });
 }
 
 function unhoverA(){
   $(this).animate({
-    left: "-=0.5%",
-    top: "+=0.5%"
+    marginLeft: "-=10px",
   }, 200, function() {
 
   });
@@ -79,13 +77,13 @@ function unhoverB(){
 
 //Clicked functions for buttons
 $("#git").click(function(){
-   window.location.href = "https://github.com/sam-bunger";
+   window.open("https://github.com/sam-bunger", '_blank');
 });
 $("#email").click(function(){
 
 });
 $("#linked").click(function(){
-  window.location.href = "https://www.linkedin.com/in/sam-bunger/";
+  window.open("https://www.linkedin.com/in/sam-bunger/", '_blank');
 });
 
 
