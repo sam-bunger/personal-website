@@ -15,8 +15,8 @@ body{
 
 div.cover-items{
   position: absolute;
-  height: 1850px;
-  width: 100vh;
+  height: 1500px;
+  width: 100%;
   z-index: 2;
 }
 
@@ -28,16 +28,21 @@ div.cover-items h2{
   white-space: nowrap;
 }
 
+div.hero{
+  height: 100%;
+  width: 100%;
+  background-color: white;
+}
 
 div.left{
-  top: 40%;
-  left: 20%;
+  top: 40vh;
+  left: 20vw;
   position: fixed;
 }
 
 div.right{
-  top: 20%;
-  left: 65%;
+  top: 23vh;
+  left: 65vw;
   position: fixed;
 }
 
@@ -64,10 +69,29 @@ img.sm:hover{
   cursor: pointer;
 }
 
+/*-------Parallax---------*/
+
+div.particle-parallax{
+  height: 300px;
+  width: 100%;
+  background-color: transparent;
+  z-index: 2;
+}
+
+#particles-js{
+  background-color: #fafafa;
+  position: fixed;
+  z-index: -1;
+  width: 100%;
+  height: 150vh;
+}
+
+/*-------More Content-----*/
+
 div.more-content{
   position: absolute;
   height: 500px;
-  width: 100vw;
+  width: 100%;
   background-color: transparent;
   z-index: 3;
 }
@@ -95,34 +119,33 @@ div.spacer{
   height: 50px;
 }
 
-#slide-show img{
-  width: 5vw;
-  float: left;
-}
+@media only screen and (max-width: 1100px) {
+  div.left{
+    top: 5vh;
+    left: 50vw;
+    margin-left: -148px;
+    position: fixed;
+  }
 
-#slide-show{
-  margin-left: auto;
-  width:50vw;
-  overflow: hidden;
+  div.right{
+    top: 25vh;
+    left: 50vw;
+    margin-left: -45px;
+    position: fixed;
+  }
 
-}
+  div.cover-items h2{
+    font-size: 40px;
+    margin-left: 37 !important;
+  }
 
-#image-slide img{
-  width: 100vw;
-}
+  div.cover-items h3{
+    font-size: 20px;
+  }
 
-#image-slide{
-  width: 40%;
-  float: left;
-}
-
-#particles-js{
-  position: fixed;
-  width: 100vw;
-}
-
-@media only screen and (max-width: 720px) {
-    #particles-js {
-        position: absolute;
-    }
+  img.sm{
+    width: 30px;
+    opacity: 0;
+    margin-left: 10px;
+  }
 }

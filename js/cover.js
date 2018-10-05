@@ -10,13 +10,19 @@ $("#projects").css({marginLeft: "300px"});
 $("#resume").css({marginLeft: "300px"});
 
 
-var canvas = document.querySelector("#cover");
-var cover = $("#cover-container");
-var context = canvas.getContext("2d");
+//var canvas = document.querySelector("#cover");
+//var cover = $("#cover-container");
+//var context = canvas.getContext("2d");
 var scroll = false;
 
-canvas.height = cover.height();
-canvas.width = $(window).width();
+//canvas.height = cover.height();
+//canvas.width = $(window).width();
+
+$(function(){
+  //draw();
+  $(window).scrollTop(0);
+  startAnimation();
+});
 
 $(window).scroll(function(){
 
@@ -25,12 +31,16 @@ $(window).scroll(function(){
     return;
   }
 
-  var percent = ($(window).scrollTop()-100)/1000;
+  var percent = ($(window).scrollTop()-100)/900;
+  $(".left").css({zIndex: 1});
+  $(".right").css({zIndex: 1});
   var op = 1-percent;
   if(percent <= 0){
     percent = 0;
   }else if(percent > 1){
     percent = 1;
+    $(".left").css({zIndex: -1});
+    $(".right").css({zIndex: -1});
   }
 
   var s1 = (-1*percent*100) + "px";
@@ -51,12 +61,6 @@ $(window).scroll(function(){
   $("#projects").css({marginLeft: s7, opacity: op});
   $("#resume").css({marginLeft: s8, opacity: op});
 
-});
-
-$(function(){
-  draw();
-  $(window).scrollTop(0);
-  startAnimation();
 });
 
 var interval;
@@ -138,11 +142,13 @@ function showMenu(name){
 
 }
 
+/*
 function draw(){
 
     var initialW = $(window).width()/32;
     var rowNum = 4;
 
+    /*
     context.beginPath();
     context.rect(0, 0, $(window).width(), $(window).height());
     context.fillStyle = "#FFFFFF";
@@ -179,3 +185,4 @@ function draw(){
 function tHeight(width){
   return (width/2)*(Math.sqrt(3));
 }
+*/

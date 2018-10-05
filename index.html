@@ -2,6 +2,7 @@
 <html>
   <head>
     <title>Sam Bunger</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" href="css/main.css?version=51">
     <link href="https://fonts.googleapis.com/css?family=Bai+Jamjuree" rel="stylesheet">
     <link rel="shortcut icon" href="favicon.ico" />
@@ -15,26 +16,27 @@
   </head>
 
   <body>
-
-
     <div id="particles-js"></div>
     <div id="cover-container" class="cover-items">
 
-      <div class="left">
-        <h2 id="name"> Sam Bunger </h2>
-        <img id="email" class="sm" src="assets/email.png"/>
-        <img id="linked" class="sm" src="assets/linked.png"/>
-        <img id="git" class="sm" src="assets/git.png"/>
+      <div class="hero">
+        <div class="left">
+          <h2 id="name"> Sam Bunger </h2>
+          <img id="email" class="sm" src="assets/email.png"/>
+          <img id="linked" class="sm" src="assets/linked.png"/>
+          <img id="git" class="sm" src="assets/git.png"/>
+        </div>
+
+        <div class="right">
+          <h3 id="about-me"> About Me </h3>
+          <h3 id="experience"> Experience </h3>
+          <h3 id="projects"> Projects </h3>
+          <h3 id="resume"> Resume </h3>
+        </div>
       </div>
 
-      <div class="right">
-        <h3 id="about-me"> About Me </h3>
-        <h3 id="experience"> Experience </h3>
-        <h3 id="projects"> Projects </h3>
-        <h3 id="resume"> Resume </h3>
-      </div>
+      <div id="parallax" class="particle-parallax"></div>
 
-      <canvas id="cover"></canvas>
       <div class="more-content">
         <div id="about-me-sec" class="info-section">
 
@@ -67,6 +69,7 @@
     </div>
 
     <script src="js/cover.js"></script>
+    <script src="js/parallax.js"></script>
     <script src="js/interact.js"></script>
     <script src="js/particles.js"></script>
     <script src="js/app.js"></script>
