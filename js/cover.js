@@ -9,14 +9,7 @@ $("#experience").css({marginLeft: "300px"});
 $("#projects").css({marginLeft: "300px"});
 $("#resume").css({marginLeft: "300px"});
 
-
-//var canvas = document.querySelector("#cover");
-//var cover = $("#cover-container");
-//var context = canvas.getContext("2d");
 var scroll = false;
-
-//canvas.height = cover.height();
-//canvas.width = $(window).width();
 
 $(function(){
   //draw();
@@ -90,16 +83,12 @@ function showSocial(){
       name = "email";
     }
 
-    //$("#" + name).animateRotate(360, 600, "linear", function(){});
-
     $( "#" + name ).animate({
       opacity: 1,
       marginLeft: "50px",
     }, 800, function() {
 
     });
-
-
 
     counter++;
   }

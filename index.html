@@ -39,27 +39,34 @@
 
       <div class="more-content">
         <div id="about-me-sec" class="info-section">
-
-          <h1> About Me </h1>
-          <!--
+          <h1> Me </h1>
           <p> I am a computer science student at The George Washington University. </p>
-          -->
+          <p> I love web development and software engineering. </p>
         </div>
-        <div class="spacer"></div>
-        <div id="experience-sec" class="info-section">
+        <div id="parallax" class="particle-parallax"></div>
+        <div id="experience-sec" class="info-section" style="height: 1110px">
           <h1> Experience </h1>
-          <!--
-          <h4> Schneider Electric <i style="font-size: 14;"> Summer 2018 </i></h4>
-          <div id="slide-show">
-            <img id="left" src="assets/left.png">
-            <div id="image-slide">
-              <img id="1" src="assets/schneider.png">
-            </div>
-            <img id="left" src="assets/right.png">
+          <h4> Schneider Electric Internship </h4>
+          <p> During my time at Schneider I took on the challenge of building my
+            first web app. </p>
+          <p> The goal of the internship was simple: Design a "landscape monitor"
+            allowing Schneider's analysts to better monitor its top competitors. </p>
+          <p> The solution was mine to come up with, so I decided on a web app.
+            But with zero previous web development expereience, I needed to
+            research... extensively. </p>
+          <p> By the end of the Summer I had built my first web application called <b>Sherlock</b> </p>
+          <p> I built an internal facing Apache server running PHP and MySQL </p>
+          <p> The idea behind Sherlock: </p>
+          <p><b> All the competitive intelligence Sherlock would need could be found within Schneider. </b></p>
+          <p> Information on competitors that an employee finds in the news, from colleges, or online, can easily be posted on Sherlock. </p>
+          <p> Other users can then vote, comment, and share this information. This allows Schneider employees to gain an edge over competitors. </p>
+          <div id="sherlock-img" class="images">
+            <img src="assets/sherlock-sc.png">
+            <img src="assets/sherlock-p.png">
           </div>
-        -->
         </div>
-        <div class="spacer"></div>
+
+        <div id="parallax" class="particle-parallax"></div>
         <div id="project-sec" class="info-section">
           <h1> Projects </h1>
         </div>
@@ -77,4 +84,8 @@
 
   </body>
 
+  <script>
+    var w = -1*(($(".images").width()+200)/2) - 30;
+    $(".images").css({marginLeft: w});
+  </script>
 </html>
