@@ -12,10 +12,11 @@ $("#resume").css({marginLeft: "300px"});
 var scroll = false;
 
 $(function(){
-  //draw();
+  sherlockAdj();
   $(window).scrollTop(0);
   startAnimation();
 });
+
 
 $(window).scroll(function(){
 
@@ -24,35 +25,10 @@ $(window).scroll(function(){
     return;
   }
 
-  var percent = ($(window).scrollTop()-100)/900;
-  $(".left").css({zIndex: 1});
-  $(".right").css({zIndex: 1});
-  var op = 1-percent;
-  if(percent <= 0){
-    percent = 0;
-  }else if(percent > 1){
-    percent = 1;
-    $(".left").css({zIndex: -1});
-    $(".right").css({zIndex: -1});
-  }
+  var st = $(window).scrollTop();
 
-  var s1 = (-1*percent*100) + "px";
-  var s2 = (-1*percent*500 + 50) + "px";
-  var s3 = (1*percent*100 + 50) + "px";
-  var s4 = (1*percent*100 + 50) + "px";
-  var s5 = (percent*300) + "px";
-  var s6 = (percent*400) + "px";
-  var s7 = (percent*500) + "px";
-  var s8 = (percent*600) + "px";
-
-  $("#name").css({marginLeft: s1, opacity: op});
-  $("#email").css({marginLeft: s2, opacity: op});
-  $("#linked").css({marginLeft: s3, opacity: op});
-  $("#git").css({marginLeft: s4, opacity: op});
-  $("#about-me").css({marginLeft: s5, opacity: op});
-  $("#experience").css({marginLeft: s6, opacity: op});
-  $("#projects").css({marginLeft: s7, opacity: op});
-  $("#resume").css({marginLeft: s8, opacity: op});
+  parallax(st);
+  heroSlide(st);
 
 });
 
@@ -131,47 +107,97 @@ function showMenu(name){
 
 }
 
-/*
-function draw(){
+function heroSlide(st){
 
-    var initialW = $(window).width()/32;
-    var rowNum = 4;
+  if(st > 1100){
+    return;
+  }
 
-    /*
-    context.beginPath();
-    context.rect(0, 0, $(window).width(), $(window).height());
-    context.fillStyle = "#FFFFFF";
-    context.fill();
+  var percent = (st-100)/900;
+  $(".left").css({zIndex: 1});
+  $(".right").css({zIndex: 1});
+  var op = 1-percent;
+  if(percent <= 0){
+    percent = 0;
+  }else if(percent > 1){
+    percent = 1;
+    $(".left").css({zIndex: - 1});
+    $(".right").css({zIndex: - 1});
+  }
+
+  var s1 = (-1*percent*100) + "px";
+  var s2 = (-1*percent*500 + 50) + "px";
+  var s3 = (1*percent*100 + 50) + "px";
+  var s4 = (1*percent*100 + 50) + "px";
+  var s5 = (percent*300) + "px";
+  var s6 = (percent*400) + "px";
+  var s7 = (percent*500) + "px";
+  var s8 = (percent*600) + "px";
+
+  $("#name").css({marginLeft: s1, opacity: op});
+  $("#email").css({marginLeft: s2, opacity: op});
+  $("#linked").css({marginLeft: s3, opacity: op});
+  $("#git").css({marginLeft: s4, opacity: op});
+  $("#about-me").css({marginLeft: s5, opacity: op});
+  $("#experience").css({marginLeft: s6, opacity: op});
+  $("#projects").css({marginLeft: s7, opacity: op});
+  $("#resume").css({marginLeft: s8, opacity: op});
+
+}
+
+function parallax(st){
+
+  var winH = $(window).height();
+
+  //Background parallax
+  var changeP = 0;
+  if(st > 800){
+    changeP = -1*((st-800)/8);
+    $("#particles-js").css({marginTop: changeP});
+  }
 
 
-    var height = tHeight(initialW);
-    var totalH = $(window).height();
+  //Image parallax
 
-    for(var j = 0; j <= rowNum; j++){
+  //Sherlock
+  var offsetS = $('#sherlock-img').offset().top;
+  var distanceS = (offsetS - st);
+  if(Math.abs(distanceS) < winH){
 
-      for(var i = 0; i <= canvas.width + initialW; i += initialW){
+    var change = 0;
+    var sherH = $('#sherlock-img').height();
+    var vHeight = 10;
 
 
-        context.moveTo(i, totalH);
-        context.lineTo(i + initialW/2, totalH + height);
-        context.lineTo(i + initialW, totalH);
 
-
-        // the fill color
-        context.fillStyle = "#FFFFFF";
-        context.fill();
-
-      }
-        totalH += height;
-        initialW = initialW*2;
-        height = tHeight(initialW);
+    if(distanceS < sherH + winH){
+      change = ((distanceS - (winH/2) + (sherH/2))/vHeight);
     }
-    context.closePath();
-    context.clip();
+
+    $("#sherlock-img").css({marginTop: change});
+
+  }
 
 }
 
-function tHeight(width){
-  return (width/2)*(Math.sqrt(3));
+$( window ).resize(function() {
+  sherlockAdj();
+});
+
+function sherlockAdj(){
+  var width = $(window).width()*0.55;
+  $("#s-1").width(width);
+  var height = $("#s-1").height();
+  $("#s-2").height(height);
+
+  var p = getNum($(".images").css("padding"));
+  var m = getNum($("#s-1").css("margin")) + getNum($("#s-2").css("margin"));
+  var w = -1*(($(".images").width()+ p + m)/2);
+
+  console.log("p: " + getNum(p) + "\nm: "+ m + "\nw: " + w + "\noriginalW: "+ $(".images").width());
+  $(".images").css({marginLeft: w});
 }
-*/
+
+function getNum(s){
+  return parseInt(s);
+}

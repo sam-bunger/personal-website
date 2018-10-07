@@ -41,8 +41,10 @@ div.left{
 }
 
 div.right{
-  top: 23vh;
-  left: 65vw;
+  top: 50vh;
+  left: 75vw;
+  margin-left: -75px;
+  margin-top: -265px;
   position: fixed;
 }
 
@@ -78,11 +80,12 @@ div.particle-parallax{
   z-index: 2;
 }
 
+
 #particles-js{
   background-color: #fafafa;
   position: fixed;
   z-index: -1;
-  width: 100%;
+  width: 100vw;
   height: 150vh;
 }
 
@@ -120,10 +123,10 @@ div.images{
   left: 50vw;
   position: absolute;
   display: inline-block;
+  white-space: nowrap;
 }
 
 div.images img{
-  height: 400px;
   margin: 25px;
   border-radius: 5px;
   -webkit-box-shadow: -3px 3px 74px -8px rgba(140,140,140,1);
@@ -155,9 +158,10 @@ div.spacer{
   }
 
   div.right{
-    top: 35vh;
+    top: 60vh;
     left: 50vw;
     margin-left: -45px;
+    margin-top: -160px;
     position: fixed;
   }
 
@@ -191,7 +195,10 @@ div.spacer{
   }
 
   div.images img{
-    height: 100px;
-    margin: 10px;
+    -webkit-box-shadow: 0px 0px 19px 4px rgba(140, 140, 140, 0.6);
+    -moz-box-shadow: 0px 0px 19px 4px rgba(140, 140, 140, 0.6);
+    box-shadow: 0px 0px 19px 4px rgba(140, 140, 140, 0.6);
+    margin: 5px;
   }
+
 }
