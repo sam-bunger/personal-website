@@ -194,7 +194,6 @@ function sherlockAdj(){
   var m = getNum($("#s-1").css("margin")) + getNum($("#s-2").css("margin"));
   var w = -1*(($(".images").width()+ p + m)/2);
 
-  console.log("p: " + getNum(p) + "\nm: "+ m + "\nw: " + w + "\noriginalW: "+ $(".images").width());
   $(".images").css({marginLeft: w});
 }
 
