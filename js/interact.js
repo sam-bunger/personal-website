@@ -38,9 +38,7 @@ $("#about-me").click(function(){
   'slow');
 });
 $("#resume").click(function(){
-  $('html,body').animate({
-       scrollTop: $("#project-sec").offset().top},
-  'slow');
+  window.open("downloads/resume.pdf", '_blank')
 });
 
 
@@ -80,7 +78,7 @@ $("#git").click(function(){
    window.open("https://github.com/sam-bunger", '_blank');
 });
 $("#email").click(function(){
-
+  window.location.href = "mailto:sam.bunger@gmail.com";
 });
 $("#linked").click(function(){
   window.open("https://www.linkedin.com/in/sam-bunger/", '_blank');

@@ -14,8 +14,6 @@ var val = 60;
 if($(window).width() < 800){
   val = 40
 }
-var experienceH = $("#experience-sec").height()+val;
-var projectH = $("#project-sec").height()+val;
 var aboutH = $("#about-me-sec").height()+val;
 
 $(function(){
@@ -38,7 +36,7 @@ $(window).scroll(function(){
   parallaxIn(st, "sherlock-img", 12, 0);
   parallaxIn(st, "tic-img", 12, 0);
   if($(window).width() < 800){
-    parallaxIn(st, "profile", 8, 0);
+    parallaxIn(st, "profile", 16, 0);
   }else{
     parallaxIn(st, "profile", 8, -$("#profile").height()/4);
   }
@@ -200,9 +198,8 @@ function adj(){
   $("#sherlock-img").css({marginLeft: w});
 
   //Height of experience secton
-  experienceH += $("#sherlock-img").height();
-  $("#experience-sec").css({height: experienceH});
-  experienceH -= $("#sherlock-img").height();
+  $("#sherlock-spacer").css({height: $("#sherlock-img").height()+40});
+
 
 
   //----------------TIC TAC TOE----------------
@@ -217,10 +214,7 @@ function adj(){
   var w = -1*(($("#tic-img").width()+ p + m)/2);
   $("#tic-img").css({marginLeft: w});
 
-  //Height of experience secton
-  projectH += $("#tic-img").height();
-  $("#project-sec").css({height: projectH});
-  projectH -= $("#tic-img").height();
+  $("#tic-spacer").css({height: $("#tic-img").height()+40});
 
 
   //----------SCREEN CONDITIONAL-------------
@@ -241,8 +235,6 @@ function adj(){
     aboutH += $("#profile").height() - 10;
     $("#about-me-sec").css({height: aboutH});
     aboutH -= $("#profile").height() - 10;
-
-
 
   }
 
