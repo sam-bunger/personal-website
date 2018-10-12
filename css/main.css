@@ -152,6 +152,11 @@ div.info-section h4{
    font-size: 20px;
  }
 
+  div.info-section a{
+    text-decoration: none;
+    color: #0546c1;
+  }
+
 div.spacer{
   background-color: transparent;
   height: 50px;

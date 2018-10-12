@@ -10,8 +10,13 @@ $("#projects").css({marginLeft: "300px"});
 $("#resume").css({marginLeft: "300px"});
 
 var scroll = false;
-var experienceH = $("#experience-sec").height()+60;
-var aboutH = $("#about-me-sec").height()+60;
+var val = 60;
+if($(window).width() < 800){
+  val = 40
+}
+var experienceH = $("#experience-sec").height()+val;
+var projectH = $("#project-sec").height()+val;
+var aboutH = $("#about-me-sec").height()+val;
 
 $(function(){
   adj();
@@ -30,11 +35,12 @@ $(window).scroll(function(){
   var st = $(window).scrollTop();
 
   parallax(st);
-  parallaxIn(st, "sherlock-img", 10, 0);
+  parallaxIn(st, "sherlock-img", 12, 0);
+  parallaxIn(st, "tic-img", 12, 0);
   if($(window).width() < 800){
-    parallaxIn(st, "profile", 10, 0);
+    parallaxIn(st, "profile", 8, 0);
   }else{
-    parallaxIn(st, "profile", 10, -$("#profile").height()/4);
+    parallaxIn(st, "profile", 8, -$("#profile").height()/4);
   }
 
 
@@ -80,19 +86,6 @@ function showSocial(){
   }
 }
 
-$.fn.animateRotate = function(angle, duration, easing, complete) {
-    var args = $.speed(duration, easing, complete);
-    var step = args.step;
-    return this.each(function(i, e) {
-        args.step = function(now) {
-            $.style(e, 'transform', 'rotate(' + now + 'deg)');
-            if (step) return step.apply(this, arguments);
-        };
-
-        $({deg: 0}).animate({deg: angle}, args);
-    });
-};
-
 function showMenu(name){
   if(name == "end"){
     scroll = true;
@@ -119,7 +112,7 @@ function showMenu(name){
 
 function heroSlide(st){
 
-  if(st > 1150){
+  if(st > 1500){
     return;
   }
 
@@ -161,10 +154,10 @@ function parallax(st){
 
   //Background parallax
   var changeP = 0;
-  //if(st > 800){
+  if(st > 800){
     changeP = -1*((st-800)/8);
     $("#particles-js").css({marginTop: changeP});
-  //}
+  }
 
 }
 
@@ -193,24 +186,44 @@ $( window ).resize(function() {
 
 function adj(){
 
+  //---------SHERLOCK Adjustments------------
+  //Get image heights
   var width = $(window).width()*0.55;
   $("#s-1").width(width);
   var height = $("#s-1").height();
   $("#s-2").height(height);
 
-  var p = getNum($(".images").css("padding"));
+  //Update the margins on images
+  var p = getNum($("#sherlock-img").css("padding"));
   var m = getNum($("#s-1").css("margin")) + getNum($("#s-2").css("margin"));
-  var w = -1*(($(".images").width()+ p + m)/2);
+  var w = -1*(($("#sherlock-img").width()+ p + m)/2);
+  $("#sherlock-img").css({marginLeft: w});
 
-  $(".images").css({marginLeft: w});
-
-
-  //Sections sizes
-  console.log("orig: " + experienceH + "\nadd: "+ $(".images").height());
-
-  experienceH += $(".images").height();
+  //Height of experience secton
+  experienceH += $("#sherlock-img").height();
   $("#experience-sec").css({height: experienceH});
-  experienceH -= $(".images").height();
+  experienceH -= $("#sherlock-img").height();
+
+
+  //----------------TIC TAC TOE----------------
+  //Get image heights
+  var width = $(window).width()*0.33;
+  $("#t-1").width(width);
+  $("#t-2").width(width);
+
+  //Update the margins on images
+  var p = getNum($("#tic-img").css("padding"));
+  var m = getNum($("#t-1").css("margin")) + getNum($("#t-2").css("margin"));
+  var w = -1*(($("#tic-img").width()+ p + m)/2);
+  $("#tic-img").css({marginLeft: w});
+
+  //Height of experience secton
+  projectH += $("#tic-img").height();
+  $("#project-sec").css({height: projectH});
+  projectH -= $("#tic-img").height();
+
+
+  //----------SCREEN CONDITIONAL-------------
 
   if($(window).width() > 800){
 
