@@ -10,9 +10,11 @@ $("#projects").css({marginLeft: "300px"});
 $("#resume").css({marginLeft: "300px"});
 
 var scroll = false;
+var experienceH = $("#experience-sec").height()+60;
+var aboutH = $("#about-me-sec").height()+60;
 
 $(function(){
-  sherlockAdj();
+  adj();
   $(window).scrollTop(0);
   startAnimation();
 });
@@ -28,6 +30,14 @@ $(window).scroll(function(){
   var st = $(window).scrollTop();
 
   parallax(st);
+  parallaxIn(st, "sherlock-img", 10, 0);
+  if($(window).width() < 800){
+    parallaxIn(st, "profile", 10, 0);
+  }else{
+    parallaxIn(st, "profile", 10, -$("#profile").height()/4);
+  }
+
+
   heroSlide(st);
 
 });
@@ -109,7 +119,7 @@ function showMenu(name){
 
 function heroSlide(st){
 
-  if(st > 1100){
+  if(st > 1150){
     return;
   }
 
@@ -151,40 +161,38 @@ function parallax(st){
 
   //Background parallax
   var changeP = 0;
-  if(st > 800){
+  //if(st > 800){
     changeP = -1*((st-800)/8);
     $("#particles-js").css({marginTop: changeP});
-  }
+  //}
 
+}
 
-  //Image parallax
-
-  //Sherlock
-  var offsetS = $('#sherlock-img').offset().top;
+function parallaxIn(st, name, vHeight, offset){
+  var winH = $(window).height();
+  var offsetS = $('#'+name).offset().top;
   var distanceS = (offsetS - st);
   if(Math.abs(distanceS) < winH){
 
     var change = 0;
-    var sherH = $('#sherlock-img').height();
-    var vHeight = 10;
-
-
+    var sherH = $('#'+name).height();
 
     if(distanceS < sherH + winH){
-      change = ((distanceS - (winH/2) + (sherH/2))/vHeight);
+      change = ((distanceS - (winH/2) + (sherH/2))/vHeight) + offset;
     }
 
-    $("#sherlock-img").css({marginTop: change});
+    $("#"+name).css({marginTop: change});
 
   }
-
 }
 
+
 $( window ).resize(function() {
-  sherlockAdj();
+  adj();
 });
 
-function sherlockAdj(){
+function adj(){
+
   var width = $(window).width()*0.55;
   $("#s-1").width(width);
   var height = $("#s-1").height();
@@ -195,6 +203,36 @@ function sherlockAdj(){
   var w = -1*(($(".images").width()+ p + m)/2);
 
   $(".images").css({marginLeft: w});
+
+
+  //Sections sizes
+  console.log("orig: " + experienceH + "\nadd: "+ $(".images").height());
+
+  experienceH += $(".images").height();
+  $("#experience-sec").css({height: experienceH});
+  experienceH -= $(".images").height();
+
+  if($(window).width() > 800){
+
+    $("#profile").width($(window).width()*0.25);
+
+    w = (($(window).width() - $(".special-me").width())/2) - $("#profile").width()/2 - 20;
+    $("#profile").css({marginLeft: w});
+
+  }else{
+    $("#profile").width($(window).width()*0.60);
+
+    w = $(window).width()/2 - ($("#profile").width()/2)-20;
+    $("#profile").css({marginLeft: w});
+
+    aboutH += $("#profile").height() - 10;
+    $("#about-me-sec").css({height: aboutH});
+    aboutH -= $("#profile").height() - 10;
+
+
+
+  }
+
 }
 
 function getNum(s){

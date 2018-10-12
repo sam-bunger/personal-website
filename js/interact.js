@@ -34,7 +34,7 @@ $("#experience").click(function(){
 });
 $("#about-me").click(function(){
   $('html,body').animate({
-       scrollTop: $("#about-me-sec").offset().top},
+       scrollTop: $("#about-me-sec").offset().top - $(window).height()/2 + $("#about-me-sec").height()/2 },
   'slow');
 });
 $("#resume").click(function(){
