@@ -186,7 +186,7 @@ function adj(){
 
   //---------SHERLOCK Adjustments------------
   //Get image heights
-  var width = $(window).width()*0.55;
+  var width = $(window).width()*0.65;
   $("#s-1").width(width);
   var height = $("#s-1").height();
   $("#s-2").height(height);
