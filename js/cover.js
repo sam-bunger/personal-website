@@ -154,26 +154,23 @@ function parallax(st){
   var changeP = 0;
   if(st > 800){
     changeP = -1*((st-800)/8);
-    $("#particles-js").css({marginTop: changeP});
+    document.getElementById("particles-js").style.marginTop = changeP;
   }
 
 }
 
 function parallaxIn(st, name, vHeight, offset){
+
   var winH = $(window).height();
   var offsetS = $('#'+name).offset().top;
   var distanceS = (offsetS - st);
   if(Math.abs(distanceS) < winH){
-
     var change = 0;
     var sherH = $('#'+name).height();
-
     if(distanceS < sherH + winH){
       change = ((distanceS - (winH/2) + (sherH/2))/vHeight) + offset;
     }
-
-    $("#"+name).css({marginTop: change});
-
+    document.getElementById(name).style.marginTop = change;
   }
 }
 

@@ -8,14 +8,14 @@ $("#resume").hover(hoverA, unhoverA);
 
 function hoverA(){
   $(this).animate({
-    marginLeft: "+=10px",
+    paddingLeft: "+=10px",
   }, 200, function() {
   });
 }
 
 function unhoverA(){
   $(this).animate({
-    marginLeft: "-=10px",
+    paddingLeft: "-=10px",
   }, 200, function() {
 
   });
