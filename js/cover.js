@@ -41,8 +41,8 @@ function heroSlide(st){
   }
 
   var percent = (st-100)/900;
-  $(".left").css({zIndex: 1});
-  $(".right").css({zIndex: 1});
+  $(".left").css({zIndex: 2});
+  $(".right").css({zIndex: 2});
   var op = 1-percent;
   if(percent <= 0){
     percent = 0;
