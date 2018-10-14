@@ -1,14 +1,4 @@
 
-/*INITIAL VALUES*/
-$("#name").css({marginLeft: "-300px"});
-$("#email").css({marginLeft: "-100px"});
-$("#linked").css({marginLeft: "0px"});
-$("#git").css({marginLeft: "0px"});
-$("#about-me").css({marginLeft: "300px"});
-$("#experience").css({marginLeft: "300px"});
-$("#projects").css({marginLeft: "300px"});
-$("#resume").css({marginLeft: "300px"});
-
 var scroll = false;
 var val = 60;
 if($(window).width() < 800){
@@ -17,9 +7,8 @@ if($(window).width() < 800){
 var aboutH = $("#about-me-sec").height()+val;
 
 $(function(){
-  adj();
-  $(window).scrollTop(0);
-  startAnimation();
+
+
 });
 
 
@@ -33,7 +22,7 @@ $(window).scroll(function(){
   var st = $(window).scrollTop();
 
   parallax(st);
-  parallaxIn(st, "sherlock-img", 12, 0);
+  parallaxIn(st, "sherlock-img", 12, -10);
   parallaxIn(st, "tic-img", 12, 0);
   if($(window).width() < 800){
     parallaxIn(st, "profile", 16, 0);
@@ -41,72 +30,9 @@ $(window).scroll(function(){
     parallaxIn(st, "profile", 8, -$("#profile").height()/4);
   }
 
-
   heroSlide(st);
 
 });
-
-var interval;
-
-function startAnimation(){
-  $( "#name" ).animate({
-    opacity: 1,
-    marginLeft: "0px",
-  }, 800, function() {
-    showMenu("about-me");
-    interval = setInterval(showSocial, 300);
-  });
-}
-
-var counter = 0;
-
-function showSocial(){
-  if(counter == 3){
-    clearInterval(interval);
-  }else{
-    var name;
-    if(counter == 0){
-      name = "git";
-    }else if(counter == 1){
-      name = "linked";
-    }else{
-      name = "email";
-    }
-
-    $( "#" + name ).animate({
-      opacity: 1,
-      marginLeft: "50px",
-    }, 800, function() {
-
-    });
-
-    counter++;
-  }
-}
-
-function showMenu(name){
-  if(name == "end"){
-    scroll = true;
-    return;
-  }
-  $( "#"+name ).animate({
-    opacity: 1,
-    marginLeft: "0px",
-  }, 400, function() {
-    if(name == "projects"){
-      showMenu("resume");
-    }else if(name == "experience"){
-      showMenu("projects");
-    }else if(name == "about-me"){
-      showMenu("experience");
-    }else{
-      showMenu("end");
-    }
-
-  });
-
-
-}
 
 function heroSlide(st){
 
@@ -172,71 +98,4 @@ function parallaxIn(st, name, vHeight, offset){
     }
     document.getElementById(name).style.marginTop = change;
   }
-}
-
-
-$( window ).resize(function() {
-  adj();
-});
-
-function adj(){
-
-  //---------SHERLOCK Adjustments------------
-  //Get image heights
-  var width = $(window).width()*0.65;
-  $("#s-1").width(width);
-  var height = $("#s-1").height();
-  $("#s-2").height(height);
-
-  //Update the margins on images
-  var p = getNum($("#sherlock-img").css("padding"));
-  var m = getNum($("#s-1").css("margin")) + getNum($("#s-2").css("margin"));
-  var w = -1*(($("#sherlock-img").width()+ p + m)/2);
-  $("#sherlock-img").css({marginLeft: w});
-
-  //Height of experience secton
-  $("#sherlock-spacer").css({height: $("#sherlock-img").height()+40});
-
-
-
-  //----------------TIC TAC TOE----------------
-  //Get image heights
-  var width = $(window).width()*0.33;
-  $("#t-1").width(width);
-  $("#t-2").width(width);
-
-  //Update the margins on images
-  var p = getNum($("#tic-img").css("padding"));
-  var m = getNum($("#t-1").css("margin")) + getNum($("#t-2").css("margin"));
-  var w = -1*(($("#tic-img").width()+ p + m)/2);
-  $("#tic-img").css({marginLeft: w});
-
-  $("#tic-spacer").css({height: $("#tic-img").height()+40});
-
-
-  //----------SCREEN CONDITIONAL-------------
-
-  if($(window).width() > 800){
-
-    $("#profile").width($(window).width()*0.25);
-
-    w = (($(window).width() - $(".special-me").width())/2) - $("#profile").width()/2 - 20;
-    $("#profile").css({marginLeft: w});
-
-  }else{
-    $("#profile").width($(window).width()*0.60);
-
-    w = $(window).width()/2 - ($("#profile").width()/2)-20;
-    $("#profile").css({marginLeft: w});
-
-    aboutH += $("#profile").height() - 10;
-    $("#about-me-sec").css({height: aboutH});
-    aboutH -= $("#profile").height() - 10;
-
-  }
-
-}
-
-function getNum(s){
-  return parseInt(s);
 }

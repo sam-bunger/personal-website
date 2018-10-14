@@ -21,9 +21,13 @@
         font-family: 'Bai Jamjuree', sans-serif;
       }
     </style>
+    <script src="js/loader.js"></script>
   </head>
-
+  <div id="loader" class="load-background">
+    <div id="load-item"></div>
+  </div>
   <body>
+
     <div id="particles-js"></div>
     <div id="cover-container" class="cover-items">
 
@@ -61,25 +65,30 @@
         <div id="parallax" class="particle-parallax"></div>
         <div id="experience-sec" class="info-section" style="">
           <h1> Experience </h1>
-          <h4> Schneider Electric Internship --- Project Sherlock</h4>
-          <p> During my time at Schneider I took on the challenge of building my
-              first web app. </p>
-          <p> The goal of the internship was simple: Design a "landscape monitor"
-              allowing Schneider's analysts to better keep track of top competitors. </p>
-          <p> The solution was mine to come up with, so I decided to build a web app. </p>
-          <p> By the end of the Summer I had built <b>Sherlock</b> with Apache, PHP, and MySQL.</p>
-          <p> The idea behind Sherlock: </p>
-          <p><b> All the competitive intelligence Sherlock would need could be found internally. </b></p>
-          <p> All of the information in Sherlock is contributed by Schneider employees </p>
-          <p> Information on competitors that an employee finds in the news, from colleagues, or online, can easily be posted on Sherlock. </p>
-          <p> Other users can then vote, comment, and share this information. </p>
-          <p> Sherlock provides each user with a feed of competitor information, and the ability to sort their feed any way they like. </p>
-          <p> Users can also opt in for email updates on information under specific categories, competitors, countries, and/or divisions. </p>
+
+
+            <h4> Schneider Electric Internship --- Project Sherlock</h4>
+            <p> During my time at Schneider I took on the challenge of building my
+                first web app. </p>
+            <p> The goal of the internship was simple: Design a "landscape monitor"
+                allowing Schneider's analysts to better keep track of top competitors. </p>
+            <p> The solution was mine to come up with, so I decided to build a web app. </p>
+            <p> By the end of the Summer I had built <b>Sherlock</b> with Apache, PHP, and MySQL.</p>
+            <p> The idea behind Sherlock: </p>
+            <p><b> All the competitive intelligence Sherlock would need could be found internally. </b></p>
+
           <div id="sherlock-img" class="images">
             <img id="s-1" src="assets/sherlock-sc.png">
             <img id="s-2" src="assets/sherlock-p.png">
           </div>
           <div id="sherlock-spacer"></div>
+          <p> <b> Features </b></p>
+          <lu class="features" >
+            <li>Information on competitors that an employee finds in the news, from colleagues, or online, can easily be posted on Sherlock.</li>
+            <li>Other users can then vote, comment, and share this information. </li>
+            <li>Sherlock provides each user with a feed of competitor information, and the ability to sort their feed any way they like. </li>
+            <li>Users can also in for email updates on information under specific categories, competitors, countries, and/or divisions. </li>
+          </lu>
         </div>
 
         <div id="parallax" class="particle-parallax"></div>
@@ -109,10 +118,11 @@
       </div>
     </div>
 
-    <script src="js/cover.js"></script>
+
     <script src="js/interact.js"></script>
     <script src="js/particles.js"></script>
     <script src="js/app.js"></script>
+    <script src="js/cover.js"></script>
 
   </body>
 </html>
