@@ -106,17 +106,10 @@ function adj(){
   var height = $("#s-1").height();
   $("#s-2").height(height);
 
-  //Update the margins on images
-  var p = getNum($("#sherlock-img").css("padding"));
-  var m = getNum($("#s-1").css("margin")) + getNum($("#s-2").css("margin"));
-  var w = -1*(($("#sherlock-img").width()+ 90)/2);
-  $("#sherlock-img").css({marginLeft: w});
 
   //Height of experience secton
   $("#sherlock-spacer").css({height: $("#sherlock-img").height()+40});
-
-
-
+  
   //----------------TIC TAC TOE----------------
   //Get image heights
   var width = $(window).width()*0.33;
@@ -126,12 +119,11 @@ function adj(){
   //Update the margins on images
   var p = getNum($("#tic-img").css("padding"));
   var m = getNum($("#t-1").css("margin")) + getNum($("#t-2").css("margin"));
-  var w = -1*(($("#tic-img").width()+ 90)/2);
-  $("#tic-img").css({marginLeft: w});
+
 
   $("#tic-spacer").css({height: $("#tic-img").height()+40});
 
-
+  var x = 90;
   //----------SCREEN CONDITIONAL-------------
 
   if($(window).width() > 800){
@@ -150,8 +142,15 @@ function adj(){
     aboutH += $("#profile").height() - 10;
     $("#about-me-sec").css({height: aboutH});
     aboutH -= $("#profile").height() - 10;
-
+    x = 50;
   }
+
+
+  var w = -1*(($("#sherlock-img").width() + x)/2);
+  $("#sherlock-img").css({marginLeft: w});
+
+  w = -1*(($("#tic-img").width() + x)/2);
+  $("#tic-img").css({marginLeft: w});
 
 }
 
