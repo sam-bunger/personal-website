@@ -109,7 +109,7 @@ function adj(){
   //Update the margins on images
   var p = getNum($("#sherlock-img").css("padding"));
   var m = getNum($("#s-1").css("margin")) + getNum($("#s-2").css("margin"));
-  var w = -1*(($("#sherlock-img").width()+ p + m)/2);
+  var w = -1*(($("#sherlock-img").width()+ 90)/2);
   $("#sherlock-img").css({marginLeft: w});
 
   //Height of experience secton
@@ -126,7 +126,7 @@ function adj(){
   //Update the margins on images
   var p = getNum($("#tic-img").css("padding"));
   var m = getNum($("#t-1").css("margin")) + getNum($("#t-2").css("margin"));
-  var w = -1*(($("#tic-img").width()+ p + m)/2);
+  var w = -1*(($("#tic-img").width()+ 90)/2);
   $("#tic-img").css({marginLeft: w});
 
   $("#tic-spacer").css({height: $("#tic-img").height()+40});

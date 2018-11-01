@@ -188,9 +188,11 @@ div.info-section p{
 div.images{
   padding: 40px;
   left: 50vw;
+  margin-left: -100px;
   position: absolute;
   display: inline-block;
   white-space: nowrap;
+  overflow: hidden;
 }
 
 div.images img{
