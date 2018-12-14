@@ -21,7 +21,7 @@ $(window).scroll(function(){
 
   var st = $(window).scrollTop();
 
-  parallax(st);
+  //parallax(st);
   parallaxIn(st, "sherlock-img", 12, -10);
   parallaxIn(st, "tic-img", 12, 0);
   if($(window).width() < 800){

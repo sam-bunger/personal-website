@@ -131,7 +131,7 @@ div.particle-parallax{
   position: fixed;
   z-index: -1;
   width: 100vw;
-  height: 200vh;
+  height: 100vh;
 }
 
 /*-------More Content-----*/
