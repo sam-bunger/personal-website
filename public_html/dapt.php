@@ -1,0 +1,135 @@
+<?php
+
+session_start();
+if(!isset($_SESSION['logged_in']) || empty($_SESSION['logged_in'])){
+    header("location: login.php");
+    exit();
+}
+
+require __DIR__ . '/vendor/autoload.php';
+
+if (php_sapi_name() != 'cli') {
+    throw new Exception('This application must be run on the command line.');
+}
+
+/**
+ * Returns an authorized API client.
+ * @return Google_Client the authorized client object
+ */
+function getClient()
+{
+    $client = new Google_Client();
+    $client->setApplicationName('Google Calendar API PHP Quickstart');
+    $client->setScopes(Google_Service_Calendar::CALENDAR_READONLY);
+    $client->setAuthConfig('credentials.json');
+    $client->setAccessType('offline');
+    $client->setPrompt('select_account consent');
+
+    // Load previously authorized token from a file, if it exists.
+    // The file token.json stores the user's access and refresh tokens, and is
+    // created automatically when the authorization flow completes for the first
+    // time.
+    $tokenPath = 'token.json';
+    if (file_exists($tokenPath)) {
+        $accessToken = json_decode(file_get_contents($tokenPath), true);
+        $client->setAccessToken($accessToken);
+    }
+
+    // If there is no previous token or it's expired.
+    if ($client->isAccessTokenExpired()) {
+        // Refresh the token if possible, else fetch a new one.
+        if ($client->getRefreshToken()) {
+            $client->fetchAccessTokenWithRefreshToken($client->getRefreshToken());
+        } else {
+            // Request authorization from the user.
+            $authUrl = $client->createAuthUrl();
+            printf("Open the following link in your browser:\n%s\n", $authUrl);
+            print 'Enter verification code: ';
+            $authCode = trim(fgets(STDIN));
+
+            // Exchange authorization code for an access token.
+            $accessToken = $client->fetchAccessTokenWithAuthCode($authCode);
+            $client->setAccessToken($accessToken);
+
+            // Check to see if there was an error.
+            if (array_key_exists('error', $accessToken)) {
+                throw new Exception(join(', ', $accessToken));
+            }
+        }
+        // Save the token to a file.
+        if (!file_exists(dirname($tokenPath))) {
+            mkdir(dirname($tokenPath), 0700, true);
+        }
+        file_put_contents($tokenPath, json_encode($client->getAccessToken()));
+    }
+    return $client;
+}
+
+
+// Get the API client and construct the service object.
+$client = getClient();
+$service = new Google_Service_Calendar($client);
+
+// Print the next 10 events on the user's calendar.
+$calendarId = 'primary';
+$optParams = array(
+  'maxResults' => 10,
+  'orderBy' => 'startTime',
+  'singleEvents' => true,
+  'timeMin' => date('c'),
+);
+$results = $service->events->listEvents($calendarId, $optParams);
+$events = $results->getItems();
+
+if (empty($events)) {
+    print "No upcoming events found.\n";
+} else {
+    print "Upcoming events:\n";
+    foreach ($events as $event) {
+        $start = $event->start->dateTime;
+        if (empty($start)) {
+            $start = $event->start->date;
+        }
+        printf("%s (%s)\n", $event->getSummary(), $start);
+    }
+}
+
+?>
+
+<html>
+    <head>
+        <title>Sam Bunger</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" type="text/css" href="../css/dapt.css?version=51">
+        <link href="https://fonts.googleapis.com/css?family=Merriweather" rel="stylesheet">
+        <link rel="shortcut icon" href="favicon.ico" />
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-127247753-1"></script>
+        <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'UA-127247753-1');
+        </script>
+        <style>
+        body, html, h1, h2, h3, h4, h5{
+            font-family: 'Merriweather', serif;
+            color: #8c8c8c;
+        }
+        body{
+            background-color: #ffe6ff;
+        }
+        </style>
+    </head>
+    <body>
+         
+
+
+
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    </body>
+</html>
