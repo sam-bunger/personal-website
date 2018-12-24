@@ -26,7 +26,8 @@ if(!isset($_SESSION['logged_in']) || empty($_SESSION['logged_in'])){
         <script src='../js/fullcalendar-3.9.0/fullcalendar.min.js'></script>
         <script>
 
-            var data = JSON.parse(<?php $json ?>)
+            $('#script-warning').hide();
+            $('#loading').hide();
 
             $(document).ready(function() {
 
@@ -39,7 +40,15 @@ if(!isset($_SESSION['logged_in']) || empty($_SESSION['logged_in'])){
                     navLinks: true, // can click day/week names to navigate views
                     editable: true,
                     eventLimit: true // allow "more" link when too many events
-                    events: "dapt.php";
+                    events: {
+                        url: 'get_events.php',
+                        error: function() {
+                            $('#script-warning').show();
+                        }
+                    },
+                    loading: function(bool) {
+                        $('#loading').toggle(bool);
+                    }
                 });
                 
             });
@@ -47,8 +56,10 @@ if(!isset($_SESSION['logged_in']) || empty($_SESSION['logged_in'])){
     </head>
     <body>
         <h3>Hannah's Appointments</h3>
-
+        
+        <div id="loading"><h5>Loading...</h5></div>
         <div id='calendar'></div>
+        <div id='script-warning'><h5>Script Loading Failure...</h5></div>
        
     </body>
 </html>
