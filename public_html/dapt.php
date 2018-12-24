@@ -26,8 +26,8 @@ if(!isset($_SESSION['logged_in']) || empty($_SESSION['logged_in'])){
         <script src='../js/fullcalendar-3.9.0/fullcalendar.min.js'></script>
         <script>
 
-            $('#script-warning').hide();
-            $('#loading').hide();
+            //$('#script-warning').hide();
+            //$('#loading').hide();
 
             $(document).ready(function() {
 
