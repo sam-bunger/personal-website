@@ -6,7 +6,7 @@ if(!isset($_SESSION['logged_in']) || empty($_SESSION['logged_in'])){
     exit();
 }
 
-//require __DIR__ . '/vendor/autoload.php';
+require __DIR__ . '/vendor/autoload.php';
 
 /**
  * Returns an authorized API client.
