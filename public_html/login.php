@@ -48,15 +48,6 @@ $_SESSION['token'] = bin2hex(random_bytes(64));
 
         gtag('config', 'UA-127247753-1');
         </script>
-        <style>
-        body, html, h1, h2, h3, h4, h5{
-            font-family: 'Merriweather', serif;
-            color: #8c8c8c;
-        }
-        body{
-            background-color: #ffe6ff;
-        }
-        </style>
     </head>
     <body>
         <form action="login.php" method="post" id="entry-form" class="entry-form">
