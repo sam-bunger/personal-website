@@ -32,25 +32,28 @@ if(!isset($_SESSION['logged_in']) || empty($_SESSION['logged_in'])){
             $(document).ready(function() {
 
                 $('#calendar').fullCalendar({
+
                     header: {
                         left: 'prev,next today',
                         center: 'title',
                         right: 'month,agendaWeek,agendaDay,listWeek'
                     },
-                    navLinks: true, // can click day/week names to navigate views
+                    defaultDate: '2018-03-12',
                     editable: true,
-                    eventLimit: true // allow "more" link when too many events
+                    navLinks: true, // can click day/week names to navigate views
+                    eventLimit: true, // allow "more" link when too many events
                     events: {
-                        url: 'get_events.php',
+                        url: '/get_events.php',
                         error: function() {
-                            $('#script-warning').show();
+                        $('#script-warning').show();
                         }
                     },
                     loading: function(bool) {
                         $('#loading').toggle(bool);
                     }
+
                 });
-                
+
             });
         </script>
     </head>

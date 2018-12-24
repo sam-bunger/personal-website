@@ -109,7 +109,7 @@ if(!empty($events)){
                 $temp['end'] = $end;
             }
         }
-        array_push($data, $temp);
+        array_push($input_arrays, $temp);
     }
 }
 
