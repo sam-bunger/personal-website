@@ -39,7 +39,7 @@ if(!isset($_SESSION['logged_in']) || empty($_SESSION['logged_in'])){
                     navLinks: true, // can click day/week names to navigate views
                     eventLimit: true, // allow "more" link when too many events
                     events: {
-                        url: 'get_events.php',
+                        url: 'get-events.php',
                         error: function() {
                             $('#script-warning').show();
                         }
