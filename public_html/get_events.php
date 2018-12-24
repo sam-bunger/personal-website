@@ -68,10 +68,9 @@ $service = new Google_Service_Calendar($client);
 // Print the next 10 events on the user's calendar.
 $calendarId = 'primary';
 $optParams = array(
-  'maxResults' => 10,
+  'maxResults' => 1000,
   'orderBy' => 'startTime',
   'singleEvents' => true,
-  'timeMin' => date('c'),
 );
 $results = $service->events->listEvents($calendarId, $optParams);
 $events = $results->getItems();

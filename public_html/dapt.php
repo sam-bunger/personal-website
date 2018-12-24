@@ -38,14 +38,13 @@ if(!isset($_SESSION['logged_in']) || empty($_SESSION['logged_in'])){
                         center: 'title',
                         right: 'month,agendaWeek,agendaDay,listWeek'
                     },
-                    defaultDate: '2018-03-12',
                     editable: true,
                     navLinks: true, // can click day/week names to navigate views
                     eventLimit: true, // allow "more" link when too many events
                     events: {
-                        url: '/get_events.php',
+                        url: 'get_events.php',
                         error: function() {
-                        $('#script-warning').show();
+                            $('#script-warning').show();
                         }
                     },
                     loading: function(bool) {
