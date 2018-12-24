@@ -57,7 +57,7 @@ function getClient()
         if (!file_exists(dirname($tokenPath))) {
             mkdir(dirname($tokenPath), 0700, true);
         }
-        file_put_contents($tokenPath, json_encode($client->getAccessToken()));
+        //file_put_contents($tokenPath, json_encode($client->getAccessToken()));
     }
     return $client;
 }
@@ -78,18 +78,9 @@ $optParams = array(
 $results = $service->events->listEvents($calendarId, $optParams);
 $events = $results->getItems();
 
-if (empty($events)) {
-    //print "No upcoming events found.\n";
-} else {
-    print "Upcoming events:\n";
-    foreach ($events as $event) {
-        $start = $event->start->dateTime;
-        if (empty($start)) {
-            $start = $event->start->date;
-        }
-        printf("%s (%s)\n", $event->getSummary(), $start);
-    }
-}
+//Grab all the event data
+$json = json_encode($events, JSON_PRETTY_PRINT);
+echo $json;
 
 ?>
 <!DOCTYPE html>
