@@ -115,7 +115,7 @@ if(!empty($events)){
     }
 }
 */
-$json = file_get_contents(dirname(__FILE__) . '/../json/events.json');
+$json = file_get_contents(dirname(__FILE__) . 'events.json');
 $input_arrays = json_decode($json, true);
 
 // Accumulate an output array of event data arrays.
