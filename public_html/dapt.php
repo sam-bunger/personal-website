@@ -14,7 +14,7 @@ if(!isset($_SESSION['logged_in']) || empty($_SESSION['logged_in'])){
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" type="text/css" href="../css/dapt.css?version=51">
         <link href="https://fonts.googleapis.com/css?family=Merriweather" rel="stylesheet">
-        <link rel="shortcut icon" href="favicon.ico" />
+        <link rel="shortcut icon" href="../favicon.ico" />
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
         <!-- Global site tag (gtag.js) - Google Analytics -->
         <script async src="https://www.googletagmanager.com/gtag/js?id=UA-127247753-1"></script>
