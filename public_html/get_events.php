@@ -2,6 +2,7 @@
 require __DIR__ . '/vendor/autoload.php';
 require dirname(__FILE__) . '/utils.php';
 
+
 // Short-circuit if the client did not give us a date range.
 if (!isset($_GET['start']) || !isset($_GET['end'])) {
   die("Please provide a date range.");

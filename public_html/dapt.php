@@ -30,6 +30,7 @@ if(!isset($_SESSION['logged_in']) || empty($_SESSION['logged_in'])){
             //$('#loading').hide();
 
             $(document).ready(function() {
+               
 
                 $('#calendar').fullCalendar({
 
@@ -41,12 +42,26 @@ if(!isset($_SESSION['logged_in']) || empty($_SESSION['logged_in'])){
                     editable: true,
                     navLinks: true, // can click day/week names to navigate views
                     eventLimit: true, // allow "more" link when too many events
-                    events: {
+                    eventSources: [
+
+                        // your event source
+                        {
                         url: 'get_events.php',
+                        type: 'GET',
+                        data: {
+                            custom_param1: '20',
+                            custom_param2: '20'
+                        },
                         error: function() {
-                            $('#script-warning').show();
+                            alert('there was an error while fetching events!');
+                        },
+                            color: 'yellow',   // a non-ajax option
+                            textColor: 'black' // a non-ajax option
                         }
-                    },
+
+                        // any other sources...
+
+                    ],
                     loading: function(bool) {
                         $('#loading').toggle(bool);
                     }
