@@ -79,7 +79,36 @@ $results = $service->events->listEvents($calendarId, $optParams);
 $events = $results->getItems();
 
 //Grab all the event data
-$json = json_encode($events, JSON_PRETTY_PRINT);
+
+$data = array();
+
+if(!empty($events)){
+    foreach($events as $event){
+        $temp = array();
+        $temp['title'] = $event->getSummary();
+
+        $start = $event->start->dateTime;
+        if (empty($start)) {
+            $start = $event->start->date;
+        }
+        $temp['start'] = $start;
+
+        $end = $event->end->dateTime;
+        if(!empty($end)){
+            $temp['end'] = $end;
+        }else{
+            $end = $event->end->date;
+            if(!enpty($end)){
+                $temp['end'] = $end;
+            }
+        }
+
+        array_push($data, $temp);
+    
+    }
+}
+
+$json = json_encode($data, JSON_PRETTY_PRINT);
 echo $json;
 
 ?>
@@ -119,7 +148,7 @@ echo $json;
         </script>
     </head>
     <body>
-        <h3>Hannah's Dick Appointments</h3>
+        <h3>Hannah's Appointments</h3>
 
         <div id='calendar'></div>
        
