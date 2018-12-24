@@ -6,12 +6,13 @@ if(!isset($_SESSION['logged_in']) || empty($_SESSION['logged_in'])){
     exit();
 }
 
-require __DIR__ . '/vendor/autoload.php';
+//require __DIR__ . '/vendor/autoload.php';
 
 /**
  * Returns an authorized API client.
  * @return Google_Client the authorized client object
  */
+
 function getClient()
 {
     $client = new Google_Client();
@@ -78,7 +79,7 @@ $results = $service->events->listEvents($calendarId, $optParams);
 $events = $results->getItems();
 
 if (empty($events)) {
-    print "No upcoming events found.\n";
+    //print "No upcoming events found.\n";
 } else {
     print "Upcoming events:\n";
     foreach ($events as $event) {
@@ -91,7 +92,7 @@ if (empty($events)) {
 }
 
 ?>
-
+<!DOCTYPE html>
 <html>
     <head>
         <title>Sam Bunger</title>
@@ -102,25 +103,34 @@ if (empty($events)) {
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
         <!-- Global site tag (gtag.js) - Google Analytics -->
         <script async src="https://www.googletagmanager.com/gtag/js?id=UA-127247753-1"></script>
+        <!-- Calendar js -->
         <link href='../js/fullcalendar-3.9.0/fullcalendar.min.css' rel='stylesheet' />
         <link href='../js/fullcalendar-3.9.0/fullcalendar.print.min.css' rel='stylesheet' media='print' />
         <script src='../js/fullcalendar-3.9.0/lib/moment.min.js'></script>
         <script src='../js/fullcalendar-3.9.0/lib/jquery.min.js'></script>
         <script src='../js/fullcalendar-3.9.0/fullcalendar.min.js'></script>
         <script>
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', 'UA-127247753-1');
+            $(document).ready(function() {
+
+                $('#calendar').fullCalendar({
+                    header: {
+                        left: 'prev,next today',
+                        center: 'title',
+                        right: 'month,agendaWeek,agendaDay,listWeek'
+                    },
+                    navLinks: true, // can click day/week names to navigate views
+                    editable: true,
+                    eventLimit: true, // allow "more" link when too many events
+                    events: []
+                });
+
+            });
         </script>
     </head>
     <body>
-        <h1>Hannah's Dick Appointments</h1>
+        <h3>Hannah's Dick Appointments</h3>
 
         <div id='calendar'></div>
-
-        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+       
     </body>
 </html>

@@ -45,7 +45,6 @@ $_SESSION['token'] = bin2hex(random_bytes(64));
         window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
         gtag('js', new Date());
-
         gtag('config', 'UA-127247753-1');
         </script>
     </head>

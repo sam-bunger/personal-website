@@ -51,12 +51,10 @@ body{
     font-size: 11px;
 }
 
-body {
-    margin: 40px 10px;
-    padding: 0;
-}
-
 #calendar {
     max-width: 900px;
-    margin: 0 auto;
+    margin: 0 20px;
+    background-color: white;
+    padding: 30px;
+    border-radius: 6px;
 }
