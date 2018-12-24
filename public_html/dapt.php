@@ -102,26 +102,21 @@ if (empty($events)) {
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
         <!-- Global site tag (gtag.js) - Google Analytics -->
         <script async src="https://www.googletagmanager.com/gtag/js?id=UA-127247753-1"></script>
+        <link href='../js/fullcalendar-3.9.0/fullcalendar.min.css' rel='stylesheet' />
+        <link href='../js/fullcalendar-3.9.0/fullcalendar.print.min.css' rel='stylesheet' media='print' />
+        <script src='../js/fullcalendar-3.9.0/lib/moment.min.js'></script>
+        <script src='../js/fullcalendar-3.9.0/lib/jquery.min.js'></script>
+        <script src='../js/fullcalendar-3.9.0/fullcalendar.min.js'></script>
         <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-
-        gtag('config', 'UA-127247753-1');
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'UA-127247753-1');
         </script>
-        <style>
-        body, html, h1, h2, h3, h4, h5{
-            font-family: 'Merriweather', serif;
-            color: #8c8c8c;
-        }
-        body{
-            background-color: #ffe6ff;
-        }
-        </style>
     </head>
     <body>
-         
-
+        <h1>Hannah's Dick Appointments</h1>
+        <div id='calendar'></div>
 
 
         <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>

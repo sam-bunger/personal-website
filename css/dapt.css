@@ -1,3 +1,11 @@
+body, html, h1, h2, h3, h4, h5{
+    font-family: 'Merriweather', serif;
+    color: #8c8c8c;
+}
+body{
+    background-color: #ffe6ff;
+}
+
 .submit-button{
     float: left;
     padding: 5px 10px;
@@ -41,4 +49,14 @@
 .help-block{
     color: red;
     font-size: 11px;
+}
+
+body {
+    margin: 40px 10px;
+    padding: 0;
+}
+
+#calendar {
+    max-width: 900px;
+    margin: 0 auto;
 }
