@@ -26,11 +26,7 @@ if(!isset($_SESSION['logged_in']) || empty($_SESSION['logged_in'])){
         <script src='../js/fullcalendar-3.9.0/fullcalendar.min.js'></script>
         <script>
 
-            //$('#script-warning').hide();
-            //$('#loading').hide();
-
             $(document).ready(function() {
-               
 
                 $('#calendar').fullCalendar({
 
@@ -42,26 +38,12 @@ if(!isset($_SESSION['logged_in']) || empty($_SESSION['logged_in'])){
                     editable: true,
                     navLinks: true, // can click day/week names to navigate views
                     eventLimit: true, // allow "more" link when too many events
-                    eventSources: [
-
-                        // your event source
-                        {
+                    events: {
                         url: 'get_events.php',
-                        type: 'GET',
-                        data: {
-                            custom_param1: '20',
-                            custom_param2: '20'
-                        },
                         error: function() {
-                            alert('there was an error while fetching events!');
-                        },
-                            color: 'yellow',   // a non-ajax option
-                            textColor: 'black' // a non-ajax option
+                            $('#script-warning').show();
                         }
-
-                        // any other sources...
-
-                    ],
+                    },
                     loading: function(bool) {
                         $('#loading').toggle(bool);
                     }
