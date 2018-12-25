@@ -15,8 +15,15 @@ if(!isset($_SESSION['logged_in']) || empty($_SESSION['logged_in'])){
         <link rel="stylesheet" type="text/css" href="../css/dapt.css?version=51">
         <link href="https://fonts.googleapis.com/css?family=Merriweather" rel="stylesheet">
         <link rel="shortcut icon" href="../favicon.ico" />
+        
         <!-- Global site tag (gtag.js) - Google Analytics -->
         <script async src="https://www.googletagmanager.com/gtag/js?id=UA-127247753-1"></script>
+
+        <!-- Boostrap 4 -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+
         <!-- Calendar js -->
         <link href='../js/fullcalendar-3.9.0/fullcalendar.min.css' rel='stylesheet' />
         <link href='../js/fullcalendar-3.9.0/fullcalendar.print.min.css' rel='stylesheet' media='print' />
@@ -66,9 +73,7 @@ if(!isset($_SESSION['logged_in']) || empty($_SESSION['logged_in'])){
             </div>
         </div>
         <!--
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+        
         -->
     </body>
 </html>
