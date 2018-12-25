@@ -15,7 +15,7 @@ if(!isset($_SESSION['logged_in']) || empty($_SESSION['logged_in'])){
         <link rel="stylesheet" type="text/css" href="../css/dapt.css?version=51">
         <link href="https://fonts.googleapis.com/css?family=Merriweather" rel="stylesheet">
         <link rel="shortcut icon" href="../favicon.ico" />
-        
+
         <!-- Global site tag (gtag.js) - Google Analytics -->
         <script async src="https://www.googletagmanager.com/gtag/js?id=UA-127247753-1"></script>
 
@@ -63,7 +63,7 @@ if(!isset($_SESSION['logged_in']) || empty($_SESSION['logged_in'])){
         <div class="container">
             <div class="row">
                 <div class="col">
-                    <h3>Hannah's Appointments</h3>
+                    <h3 class="title">Hannah's Appointments</h3>
                  </div>
                  <div class="col">
                     <div id="loading"><h5>Loading...</h5></div>
