@@ -101,8 +101,32 @@ if (isset($_GET['timezone'])) {
 }
 
 // Read and parse our events JSON file into an array of event data arrays.
-$json = file_get_contents(dirname(__FILE__) . '/events.json');
-$input_arrays = json_decode($json, true);
+//$json = file_get_contents(dirname(__FILE__) . '/events.json');
+//$input_arrays = json_decode($json, true);
+
+$input_arrays = array();
+
+if(!empty($events)){
+    foreach($events as $event){
+        $temp = array();
+        $temp['title'] = $event->getSummary();
+        $start = $event->start->dateTime;
+        if (empty($start)) {
+            $start = $event->start->date;
+        }
+        $temp['start'] = $start;
+        $end = $event->end->dateTime;
+        if(!empty($end)){
+            $temp['end'] = $end;
+        }else{
+            $end = $event->end->date;
+            if(!empty($end)){
+                $temp['end'] = $end;
+            }
+        }
+        array_push($input_arrays, $temp);
+    }
+}
 
 // Accumulate an output array of event data arrays.
 $output_arrays = array();
