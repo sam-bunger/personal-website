@@ -12,7 +12,7 @@ if (!isset($_GET['start']) || !isset($_GET['end'])) {
  * Returns an authorized API client.
  * @return Google_Client the authorized client object
  */
-/*
+
 function getClient()
 {
     $client = new Google_Client();
@@ -76,7 +76,7 @@ $optParams = array(
 );
 $results = $service->events->listEvents($calendarId, $optParams);
 $events = $results->getItems();
-*/
+
 
 // Parse the start/end parameters.
 // These are assumed to be ISO8601 strings with no time nor timezone, like "2013-12-29".
