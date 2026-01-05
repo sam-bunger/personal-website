@@ -10,7 +10,7 @@ const projects: Project[] = [
     number: "01",
     title: "Drift.io",
     description:
-      "A multiplayer web racing game built with our own in-house game engined designed specifically to run on the web. ",
+      "A multiplayer web racing game built with our own in-house game engine designed specifically to run on the web. ",
     tags: [
       "C++",
       "Emscripten",
@@ -29,7 +29,7 @@ const projects: Project[] = [
     number: "02",
     title: "Faceoff",
     description:
-      "A fast-paced multiplayer music trivia game where players compete head-to-head to identify songs from short clips. Built for IOS and Android.",
+      "A fast-paced multiplayer music trivia game where players compete head-to-head to identify songs from short clips. Built for iOS and Android.",
     tags: ["Typescript", "Node.js", "Websockets"],
     link: "https://www.volleygames.com/skills/faceoff-song-quiz",
     year: "2022-2024",
