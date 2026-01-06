@@ -66,7 +66,7 @@ const Home: React.FC = () => {
                 LINKEDIN →
               </a>
               <a
-                href="https://github.com/sambunger"
+                href="https://github.com/sam-bunger"
                 className="home__link"
                 target="_blank"
                 rel="noopener noreferrer"
